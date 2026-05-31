@@ -21,31 +21,31 @@ XGBoost + LSTM ensemble with FinBERT sentiment, per-stock learned sentiment deca
 
 | Model                                  | Rows       | Accuracy   | AUC        | Always-UP baseline |
 | -------------------------------------- | ---------- | ---------- | ---------- | ------------------ |
-| XGBoost base                           | 11,036     | 0.5364     | 0.5373     | 0.5417             |
-| **Ensemble (default pipeline output)** | **10,476** | **0.5330** | **0.5388** | **0.5466**         |
+| XGBoost base                           | 11,036     | 0.5333     | 0.5414     | 0.5417             |
+| **Ensemble (default pipeline output)** | **10,476** | **0.5337** | **0.5407** | **0.5466**         |
 | Walk-forward XGB (separate experiment) | 11,036     | 0.5574     | 0.5713     | 0.5417             |
 
 Notes:
 
 - Ensemble coverage starts 2025-01-21 (560 fewer rows than XGBoost base) because the LSTM needs a 15-day sequence warmup.
-- Ensemble accuracy (0.5330) is below its own always-UP baseline (0.5466); AUC is the metric carrying any signal.
+- Ensemble accuracy (0.5337) is below its own always-UP baseline (0.5466); AUC is the metric carrying any signal.
 - Walk-forward XGB is a separate experiment — it is **not** part of the default `run_pipeline.py` step list and must be run manually via `models/xgboost/train_walkforward.py`.
 
 | Split                                | Rows  | Accuracy | AUC    |
 | ------------------------------------ | ----- | -------- | ------ |
-| Val (2024 H2, honest, out-of-sample) | 4,436 | 0.5117   | 0.5280 |
+| Val (2024 H2, honest, out-of-sample) | 4,436 | 0.5162   | 0.5330 |
 
-- Ensemble test AUC bootstrap 95% CI (1000 resamples, seed=42): **[0.5282, 0.5496]**
-- XGBoost base test macro-F1: 0.5244
+- Ensemble test AUC bootstrap 95% CI (1000 resamples, seed=42): **[0.5292, 0.5519]**
+- XGBoost base test macro-F1: 0.5205
 
 ### Ablation (feature-substitution at inference, single trained model)
 
 | Config              | Accuracy | AUC    |
 | ------------------- | -------- | ------ |
-| A - Baseline        | 0.5472   | 0.5339 |
-| B - Learned Decay   | 0.5464   | 0.5333 |
-| C - Adaptive Gate   | 0.5445   | 0.5370 |
-| D - Both (Proposed) | 0.5445   | 0.5371 |
+| A - Baseline        | 0.5521   | 0.5447 |
+| B - Learned Decay   | 0.5510   | 0.5440 |
+| C - Adaptive Gate   | 0.5442   | 0.5454 |
+| D - Both (Proposed) | 0.5442   | 0.5446 |
 
 ## What is well-engineered here
 
@@ -130,7 +130,7 @@ python xai/shap_explain.py
 
 ## Known limitations
 
-1. **Signal is weak.** Ensemble test AUC ~0.5388 is ~4pp above random. Documented, not hidden.
+1. **Signal is weak.** Ensemble test AUC ~0.5407 is ~4pp above random. Documented, not hidden.
 2. **Train→test prior drift.** Train UP rate 0.5868, ensemble test UP rate 0.5466. Mean predicted P(UP) tracks the train prior, which is the dominant residual error mode.
 3. **Stock universe is 40, not full Nifty 50.** See `config/settings.py:STOCKS`.
 4. **Ablation methodology.** Configs A-D evaluate feature substitution on one trained model, not per-config retraining. Reported AUC deltas are lower bounds.
