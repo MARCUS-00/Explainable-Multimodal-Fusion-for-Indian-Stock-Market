@@ -5,7 +5,7 @@ import streamlit as st
 
 from prediction.watchlist import generate_watchlist
 from prediction.adaptive_gate import get_current_threshold, explain_threshold
-from app.components.output_card import render_card
+from components.output_card import render_card
 from config.settings import MERGED_CSV, WATCHLIST_MIN_CONFIDENCE
 
 

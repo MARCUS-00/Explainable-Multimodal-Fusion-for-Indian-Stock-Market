@@ -4,7 +4,7 @@ import pandas as pd
 import streamlit as st
 
 from prediction.single_stock import predict_single
-from app.components.output_card import render_card
+from components.output_card import render_card
 from config.settings             import MERGED_CSV, STOCKS
 
 

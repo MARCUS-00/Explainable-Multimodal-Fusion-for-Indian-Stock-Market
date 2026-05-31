@@ -73,8 +73,8 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-from app._pages.watchlist_page import render_watchlist_page
-from app._pages.single_stock_page import render_single_stock_page
+from _pages.watchlist_page import render_watchlist_page
+from _pages.single_stock_page import render_single_stock_page
 
 def main() -> None:
     st.title("Stock Prediction System")
