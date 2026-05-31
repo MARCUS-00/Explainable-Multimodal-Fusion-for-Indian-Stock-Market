@@ -1,0 +1,16 @@
+{
+  "n_estimators": 350,
+  "max_depth": 6,
+  "learning_rate": 0.047073570767774665,
+  "subsample": 0.7484761847589233,
+  "colsample_bytree": 0.6755801059821769,
+  "gamma": 0.7834795871854844,
+  "min_child_weight": 5,
+  "reg_alpha": 0.20465068781402063,
+  "reg_lambda": 3.0915445863491993,
+  "objective": "binary:logistic",
+  "seed": 42,
+  "n_jobs": -1,
+  "tree_method": "hist",
+  "_cache_key": "db54ad42795bd83b48aa52578cf264ed765834e9f0dc076d53647d481b213293"
+}

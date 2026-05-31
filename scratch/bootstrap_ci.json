@@ -1,0 +1,14 @@
+{
+  "headline_model": "ensemble",
+  "source_csv": "evaluation\\results\\ensemble_results.csv",
+  "test_auc_point": 0.5387674320275015,
+  "test_auc_ci95": [
+    0.5281801037948494,
+    0.5496146981979132
+  ],
+  "test_acc_point": 0.5330278732340588,
+  "n_test": 10476,
+  "up_rate": 0.5465826651393662,
+  "n_bootstrap": 1000,
+  "bootstrap_seed": 42
+}

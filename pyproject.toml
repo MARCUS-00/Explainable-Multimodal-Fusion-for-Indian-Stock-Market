@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "Explainable Multimodal Fusion for Indian Stock Market"
+version = "2.0.0"
+requires-python = ">=3.10"
+
+[project.optional-dependencies]
+data = ["nsepython>=2.9"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["config*","data_collection*","features*","models*","prediction*","evaluation*","xai*","audit*","tools*","app*"]
+
+[tool.ruff]
+extend-exclude = [".pytest_cache", "data"]
+
+[tool.ruff.lint]
+select = ["E9", "F63", "F7", "F82"]

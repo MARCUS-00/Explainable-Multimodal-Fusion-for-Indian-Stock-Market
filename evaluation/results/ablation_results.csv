@@ -1,0 +1,5 @@
+Configuration,Accuracy,Precision_UP,Recall_UP,F1_UP,AUC,Trades_per_week,Sharpe,n_predictions,threshold
+A - Baseline,0.5521,0.5893,0.7027,0.641,0.5447,97.7,-0.961,6560,0.6
+B - Learned Decay,0.551,0.5885,0.702,0.6402,0.544,97.6,-0.98,6550,0.6
+C - Adaptive Gate,0.5442,0.5786,0.6849,0.6273,0.5454,112.8,-0.952,7571,0.577
+D - Both (Proposed),0.5442,0.5787,0.6848,0.6273,0.5446,113.0,-0.941,7589,0.577
