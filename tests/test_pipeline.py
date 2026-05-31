@@ -11,6 +11,7 @@ audited bugs. Tests run on the existing merged_final.csv and saved models;
 they do not retrain.
 """
 import os
+from pathlib import Path
 
 import numpy as np
 import pandas as pd
@@ -316,5 +317,32 @@ def test_xgb_val_predictions_are_honest():
     assert val_auc - test_auc < 0.10, (
         f"Val AUC {val_auc:.4f} >> test AUC {test_auc:.4f}: val in-sample"
     )
+
+
+def test_ci_workflow_has_required_jobs_and_commands():
+    """The GitHub Actions workflow must keep the four requested jobs and use
+    the documented install and validation commands.
+    """
+    workflow_path = Path(".github/workflows/ci.yml")
+    assert workflow_path.exists(), f"Missing workflow: {workflow_path}"
+    text = workflow_path.read_text(encoding="utf-8")
+
+    required_snippets = [
+        "runs-on: ubuntu-latest",
+        "python-version: \"3.11\"",
+        "ruff check .",
+        "PYTHONPATH:",
+        "EXPLAINABLE_MULTIMODAL_FUSION_FOR_INDIAN_STOCK_MARKET_ALLOW_UNSIGNED:",
+        "pytest tests/test_pipeline.py",
+        "hashlib",
+        "models/xgboost/saved/xgb_model.pkl",
+        "models/lstm/saved/lstm_model.pt",
+        "- test",
+        "- artifact-integrity",
+        "if: github.event_name == 'push' && github.ref == 'refs/heads/main'",
+        "push:\n    branches:\n      - main",
+    ]
+    missing = [snippet for snippet in required_snippets if snippet not in text]
+    assert not missing, f"Workflow missing required snippets: {missing}"
 
 
