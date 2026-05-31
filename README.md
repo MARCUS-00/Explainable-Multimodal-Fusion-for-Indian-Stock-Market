@@ -14,6 +14,7 @@ XGBoost + LSTM ensemble with FinBERT sentiment, per-stock learned sentiment deca
 [![Python 3.11](https://img.shields.io/badge/Python-3.11-blue)](https://www.python.org/)
 [![Tests](https://img.shields.io/badge/Tests-pytest-brightgreen)](tests/)
 [![Docker](https://img.shields.io/badge/Docker-ready-2496ed)](Dockerfile)
+[![HuggingFace Space](https://img.shields.io/badge/🤗%20HuggingFace-Live%20Demo-orange)](https://huggingface.co/spaces/MANOJKUMAR724/Explainable-Multimodal-Fusion-for-Indian-Stock-Market)
 
 > **Honest framing.** This is a research scaffold, not a deployed trading signal. Ensemble test AUC is ~4pp above random. The value here is the engineering rigor (leakage prevention, deterministic training, artifact integrity, regression tests for every fixed bug) — not the predictions.
 
