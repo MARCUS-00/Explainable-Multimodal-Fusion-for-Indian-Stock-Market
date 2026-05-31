@@ -1,0 +1,22 @@
+{
+  "XGB_ROWS": "11,036",
+  "XGB_ACC": "0.5364",
+  "XGB_AUC": "0.5373",
+  "XGB_UP": "0.5417",
+  "XGB_F1": "0.5244",
+  "ENS_ROWS": "10,476",
+  "ENS_ACC": "0.5330",
+  "ENS_AUC": "0.5388",
+  "ENS_UP": "0.5466",
+  "ENS_AUC_LO": "0.5282",
+  "ENS_AUC_HI": "0.5496",
+  "WF_ROWS": "11,036",
+  "WF_ACC": "0.5574",
+  "WF_AUC": "0.5713",
+  "WF_UP": "0.5417",
+  "VAL_ROWS": "4,436",
+  "VAL_ACC": "0.5117",
+  "VAL_AUC": "0.5280",
+  "TRAIN_UP": "0.5868",
+  "ABLATION_ROWS": "| A - Baseline | 0.5472 | 0.5339 |\n| B - Learned Decay | 0.5464 | 0.5333 |\n| C - Adaptive Gate | 0.5445 | 0.5370 |\n| D - Both (Proposed) | 0.5445 | 0.5371 |"
+}
