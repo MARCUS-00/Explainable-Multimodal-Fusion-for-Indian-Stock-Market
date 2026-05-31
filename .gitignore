@@ -43,8 +43,6 @@ coverage.xml
 
 # Stale legacy artifacts (LightGBM removed from ensemble)
 evaluation/results/lgbm_results.csv
-
-
 data/merged/merged_final.csv
 data/merged/_nifty_cache.csv
 data/technical/technical.csv
