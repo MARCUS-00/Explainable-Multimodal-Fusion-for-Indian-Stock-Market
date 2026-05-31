@@ -330,7 +330,8 @@ def test_ci_workflow_has_required_jobs_and_commands():
     required_snippets = [
         "runs-on: ubuntu-latest",
         "python-version: \"3.11\"",
-        "ruff check .",
+        "python -m pip install ruff",
+        "python -m ruff check .",
         "PYTHONPATH:",
         "EXPLAINABLE_MULTIMODAL_FUSION_FOR_INDIAN_STOCK_MARKET_ALLOW_UNSIGNED:",
         "pytest tests/test_pipeline.py",
